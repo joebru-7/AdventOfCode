@@ -1,6 +1,6 @@
 ﻿var f = File.OpenText("data.txt");
 
-int maxElfAmount = 0;
+int[] maxElfAmount = new int[] { 0, 0, 0 };
 int currentElfAmount = 0;
 
 while (!f.EndOfStream)
@@ -8,8 +8,11 @@ while (!f.EndOfStream)
 	var line = f.ReadLine();
 	if (line == "")
 	{
-		if (maxElfAmount < currentElfAmount)
-			maxElfAmount = currentElfAmount;
+		if (maxElfAmount[0] < currentElfAmount)
+		{
+			maxElfAmount[0] = currentElfAmount;
+			Array.Sort(maxElfAmount);
+		}
 		currentElfAmount = 0;
 	}
 	else
@@ -18,4 +21,4 @@ while (!f.EndOfStream)
 	}
 }
 
-Console.WriteLine(maxElfAmount);
+Console.WriteLine(maxElfAmount[0] + maxElfAmount[1] + maxElfAmount[2]);
