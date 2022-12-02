@@ -8,21 +8,23 @@ while (!f.EndOfStream)
 
 	char[] parts = new[] { line[0], line[2] };
 
-	//score for choise
-	score += (parts[1] - 'X')+1;
+	//score for win
+	score += (parts[1] - 'X') *3;
 
-	int winner =  (3+(parts[0] - 'A') - (parts[1] - 'X')) % 3;
 
-	switch(winner)
+
+	int choice =  ((parts[0] - 'A') + (parts[1] - 'X'-1)+3)%3;
+
+	switch(choice)
 	{
-		case 0: //draw
-			score+= 3;
+		case 0: //rock A
+			score+= 1;
 			break;
-		case 2:// win 
-			score += 6;
+		case 1:// paper B
+			score += 2;
 			break;
-		case 1: //loss
-			score += 0;
+		case 2: //sissors C
+			score += 3;
 			break;
 	}
 }
