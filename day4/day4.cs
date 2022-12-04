@@ -1,5 +1,3 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
 part1();
 part2();
 void part1()
